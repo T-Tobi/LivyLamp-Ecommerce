@@ -9,36 +9,36 @@ let activeSearch = "";
 
 const GALLERY_ITEMS = [
   {
-    name: "Aurelian Minimalist",
-    collection: "Floor Collection",
+    name: "Artisan Pine Cone Pendant",
+    collection: "Pendant Collection",
     rating: 4.8,
-    customers: 412,
+    customers: 124,
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuCx00c4KBRZAN1G2MRtQg-ynrUz1Bzl9Y_vdsUx-YT-z-YX_fxI9Ke2SeKutEPX7i-ydAXWnuw7gel3B2Y9JQMchA2jBmDs9pK4u8IKWTU90ODhwcwn60LPL5CZveShh11tU0DZrgu4VEhanqTfkNSQ-1NqlFWeMOVR35NN7uMOxLeRxJF-t5E4N_USAchHrdLp9msAmbFFMPWYi2jpYYHvYfx-cYxR_mpwMHaX2H-zqnI6XU-PnWSQOY_Gn1kbrCzyEcehZoRn1WWZ",
+      "https://coissvyrgsaovecbqgup.supabase.co/storage/v1/object/public/LivyLamp%20img/Artisan%20Pine%20Cone%20Wooden%20Pendant%20Lights%20in%20Dark%20Interior.jpg",
   },
   {
-    name: "Obsidian Pendant",
-    collection: "Ceiling Collection",
-    rating: 4.5,
-    customers: 395,
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAzaErm_e79ESVwtIB0Z0qSZdV4TaUwHoES1uXnJI_HMV-oYk1RMcyKoTgri1ILzQUcazGjF51oNPCnwO3KnKstGZfmlCr6t2j3Cgrc01K_veOb6W5vL2jGjuwLn5-KkP2DpXJ7yAv18eBJhNwt5cuZs--K4oqhu0-4t0iYETQS8H9peojSpcHMPuTNFmRruvNUxiBgKmCNmgffH420P5FSKtbJ5F5JnZuMCyqBfdN-Rls49N5lla7O-41HckVKzr1SDM8fCgYrW-If",
-  },
-  {
-    name: "Carrara Task Lamp",
-    collection: "Desk Collection",
-    rating: 4.9,
-    customers: 288,
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDf4jFZsMOQP-sl0Jxhn3KcWyHNTEMtNUESfp5W3oEiS3YYsKdH29gFYbsd1xIc0M2K9SV883JvvzfF8llshKgRHJEB9Pig7F82VLu6FBCIr910p7d_MNJ7ZWnOYBE-i99yZYai37gCm8OwBLgtPZRKcs02z-5HCC4K6Hlrvtg07JNRM0N3eJVbvA1ERP_PZFIeJgzjv0BFe755rsaWcBbCqtWJrbJcML2ImdW4Fn4kZkEizr28OG7-SeYi2ZnjkoeEWfF1cPEAMNiA",
-  },
-  {
-    name: "Nebula Ambient",
-    collection: "Table Collection",
+    name: "Classic Amber Floor Lamp",
+    collection: "Floor Collection",
     rating: 4.7,
-    customers: 560,
+    customers: 98,
     image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBYSatvIP2DVeZJSrJi4hOa-n1ptj1cyj5DMBXqLYTIZ9C2tDGKPas8NyypCoKrqk66qAImEPgPmZ-700OK5PQISsQvyabOvGkCD57YjeCFd2RxUJpqviWVWTklux_g6x92hN3crCs8nsU_caBASjsFS6nS7KNa64VsQGbhFSmZX8kOLxwpzT3pUkMA41i5aEhrbcndSAzwWuf1KU3ScFbwIYVthRecU4eDFJqceag4EFpl0NWsPmlH5rboe4Fr94OkOp-XlfJTo-DT",
+      "https://coissvyrgsaovecbqgup.supabase.co/storage/v1/object/public/LivyLamp%20img/Classic%20Floor%20Lamp%20Casting%20Warm%20Amber%20Glow%20in%20Cozy%20Living%20Room.jpg",
+  },
+  {
+    name: "Bamboo Barrel Pendant",
+    collection: "Pendant Collection",
+    rating: 4.9,
+    customers: 76,
+    image:
+      "https://coissvyrgsaovecbqgup.supabase.co/storage/v1/object/public/LivyLamp%20img/Handwoven%20Bamboo%20Barrel%20Pendant%20Lamp%20with%20Diamond%20Pattern.jpg",
+  },
+  {
+    name: "Warm Pleated Floor Lamp",
+    collection: "Floor Collection",
+    rating: 4.6,
+    customers: 210,
+    image:
+      "https://coissvyrgsaovecbqgup.supabase.co/storage/v1/object/public/LivyLamp%20img/Warm%20Pleated%20Floor%20Lamp%20Beside%20Vintage%20Armchair%20at%20Dusk.jpg",
   },
 ];
 
@@ -74,8 +74,27 @@ function deriveType(name) {
   const n = name.toLowerCase();
   if (n.includes("floor")) return "Floor Lamp";
   if (n.includes("table") || n.includes("desk")) return "Table Lamp";
-  if (n.includes("pendant") || n.includes("ceiling") || n.includes("cluster"))
+  if (
+    n.includes("pendant") ||
+    n.includes("ceiling") ||
+    n.includes("cluster") ||
+    n.includes("hanging") ||
+    n.includes("dome") ||
+    n.includes("drum")
+  )
     return "Pendant Light";
+  if (
+    n.includes("bedside") ||
+    n.includes("shelf") ||
+    n.includes("sitting") ||
+    n.includes("glow") ||
+    n.includes("modern") ||
+    n.includes("digital") ||
+    n.includes("foldable") ||
+    n.includes("futuristic") ||
+    n.includes("spiral")
+  )
+    return "Table Lamp";
   return "Other";
 }
 
@@ -94,7 +113,7 @@ async function loadProducts() {
       price: parseFloat(p.price),
       image: p.image_url,
       stock: p.stock_quantity,
-      type: deriveType(p.name),
+      type: p.type || deriveType(p.name),
     }));
     renderProducts("all");
   } catch (err) {
@@ -104,15 +123,35 @@ async function loadProducts() {
   }
 }
 
+function interleavedByType(products) {
+  const groups = {};
+  products.forEach((p) => {
+    if (!groups[p.type]) groups[p.type] = [];
+    groups[p.type].push(p);
+  });
+
+  const result = [];
+  const keys = Object.keys(groups);
+  const maxLen = Math.max(...keys.map((k) => groups[k].length));
+
+  for (let i = 0; i < maxLen; i++) {
+    keys.forEach((key) => {
+      if (groups[key][i]) result.push(groups[key][i]);
+    });
+  }
+
+  return result;
+}
+
 /* ---- Render Products ---- */
-function renderProducts() {
+function renderProducts(filter) {
   const grid = document.getElementById("products-grid");
   if (!grid) return;
 
-  let items =
-    activeFilter === "all"
-      ? PRODUCTS
-      : PRODUCTS.filter((p) => p.type === activeFilter);
+  const items =
+    filter === "all"
+      ? interleavedByType(PRODUCTS)
+      : PRODUCTS.filter((p) => p.type === filter);
 
   if (activeSearch) {
     items = items.filter(
