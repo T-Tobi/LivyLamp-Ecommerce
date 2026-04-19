@@ -3,7 +3,7 @@
    All backend communication lives here.
    ============================================ */
 
-const API_URL = "http://localhost:3000";
+const API_URL = "https://livylamp.onrender.com";
 
 async function request(endpoint, options = {}) {
   const token = localStorage.getItem("livylamp_token");
