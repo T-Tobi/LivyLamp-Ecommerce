@@ -94,3 +94,20 @@ async function apiUpdateOrderStatus(id, status) {
     body: JSON.stringify({ status }),
   });
 }
+
+async function apiUploadImage(file) {
+  const token = localStorage.getItem("livylamp_token");
+  const formData = new FormData();
+  formData.append("image", file);
+
+  const res = await fetch(`${API_URL}/admin/upload`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${token}` },
+    // No Content-Type header — browser sets it automatically with boundary for FormData
+    body: formData,
+  });
+
+  const data = await res.json();
+  if (!res.ok) throw new Error(data.message || "Upload failed");
+  return data;
+}

@@ -207,8 +207,8 @@ async function handleAddProduct(e) {
   const name = document.getElementById("ap-name").value.trim();
   const price = document.getElementById("ap-price").value;
   const description = document.getElementById("ap-desc").value.trim();
-  const image_url = document.getElementById("ap-image").value.trim();
   const stock_quantity = document.getElementById("ap-stock").value;
+  const imageFile = document.getElementById("ap-image").files[0];
 
   if (!name) {
     showError("err-ap-name", "Name required");
@@ -224,6 +224,15 @@ async function handleAddProduct(e) {
   btn.disabled = true;
 
   try {
+    let image_url = "";
+
+    // Upload image first if one was selected
+    if (imageFile) {
+      btn.textContent = "Uploading image...";
+      const uploadResult = await apiUploadImage(imageFile);
+      image_url = uploadResult.url;
+    }
+
     await apiAddProduct({
       name,
       price,
@@ -233,6 +242,7 @@ async function handleAddProduct(e) {
     });
     showToast(`${name} added successfully!`);
     e.target.reset();
+    document.getElementById("ap-image-preview-label").textContent = "";
     loadAdminProducts();
   } catch (err) {
     showToast(err.message || "Failed to add product.", true);
@@ -241,7 +251,6 @@ async function handleAddProduct(e) {
     btn.disabled = false;
   }
 }
-
 /* ---- Delete Product ---- */
 async function handleDeleteProduct(id) {
   if (!confirm("Are you sure you want to delete this product?")) return;

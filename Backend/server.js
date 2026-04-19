@@ -14,6 +14,7 @@ const productRoutes = require("./routes/products");
 const orderRoutes = require("./routes/orders");
 const reviewRoutes = require("./routes/reviews");
 const adminRoutes = require("./routes/admin");
+const uploadRoutes = require("./routes/upload"); // ← NEW
 
 app.get("/", (req, res) => res.send("Livylamp API is running"));
 
@@ -22,6 +23,7 @@ app.use("/products", productRoutes);
 app.use("/products/:id/reviews", reviewRoutes);
 app.use("/orders", orderRoutes);
 app.use("/admin", adminRoutes);
+app.use("/admin/upload", uploadRoutes); // ← NEW
 
 // Handle routes that don't exist
 app.use((req, res) => {
